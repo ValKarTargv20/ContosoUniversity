@@ -9,19 +9,25 @@ namespace ContosoUniversity.Models
     public class Student
     {
         public int ID { get; set; }
+
         [Display(Name = "Last Name")]
         [Required]
         [StringLength(50)]
         public string LastName { get; set; }
+
         [Required]
         [StringLength(50)]
         [Column("FirstName")]
         [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
         public string FirstMidName { get; set; }
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Enrollment Date")]
         public DateTime EnrollmentDate { get; set; }
+
         [Display(Name = "Full Name")]
         public string FullName
         {
@@ -30,6 +36,8 @@ namespace ContosoUniversity.Models
                 return LastName + ", " + FirstMidName;
             }
         }
+
+
         public ICollection<Enrollment> Enrollments { get; set; }
     }
 }
